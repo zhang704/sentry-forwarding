@@ -2,6 +2,7 @@
   "name": "sentry-forward",
   "version": "1.0.0",
   "private": true,
+  "author": "me@zhangweilun.com",
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
