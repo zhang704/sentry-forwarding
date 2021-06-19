@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post(`/api/${sentry.id}/store`, function (req, res, next) {
-  var url = `https://${sentry.port}.ingest.sentry.io${req.originalUrl}`;
+  var url = `https://o511770.ingest.sentry.io${req.originalUrl}`;
   request({
     method: 'POST',
     url,
