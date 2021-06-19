@@ -9,6 +9,10 @@ var { sentry } = require("./config");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+router.get('/', function (req, res, next) {
+  res.send("只有憨憨才能看到的首页信息～～～");
+});
+
 router.post(`/api/${sentry.id}/store`, function (req, res, next) {
   var url = `https://${sentry.port}.ingest.sentry.io${req.originalUrl}`;
   request({
