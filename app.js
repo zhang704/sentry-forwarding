@@ -57,7 +57,14 @@ router.post("/api/getSentryData", function (req, res, next) {
 })
 
 router.get('/api/ip', function (req, res, next) {
-  const ip = req.ip.match(/\d+\.\d+\.\d+\.\d+/)[0];
+  let getClientIp = function (req) {
+    return req.headers['x-forwarded-for'] ||
+      req.connection.remoteAddress ||
+      req.socket.remoteAddress ||
+      req.connection.socket.remoteAddress || '';
+  };
+  let ip = getClientIp(req).match(/\d+.\d+.\d+.\d+/);
+  ip = ip ? ip.join('.') : null;
   res.send({ code: 0, data: { ip } });
 })
 
