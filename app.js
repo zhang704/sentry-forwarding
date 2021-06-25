@@ -56,6 +56,11 @@ router.post("/api/getSentryData", function (req, res, next) {
   })
 })
 
+router.get('/api/ip', function (req, res, next) {
+  const ip = req.ip.match(/\d+\.\d+\.\d+\.\d+/)[0];
+  res.send({ code: 0, data: { ip } });
+})
+
 app.use('/', router);
 
 module.exports = app;
